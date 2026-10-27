@@ -51,4 +51,10 @@ Menambah layanan: tambahkan satu objek di `services` pada `src/content/en.ts`, s
 
 ## Deploy
 
-Belum ditentukan (pengembangan lokal dulu). Saat siap: proyek Vercel baru, isi variabel di atas, arahkan DNS `whitesec.energy`. Kirim email lewat Resend memerlukan verifikasi domain pengirim.
+Sumber kode utama ada di GitLab (`whitesec-id-group/web-whitesec-energy`). Alurnya:
+
+1. `git push` ke `main` di GitLab.
+2. GitLab menyalin `main` ke GitHub otomatis (push mirror, hanya branch terproteksi).
+3. Vercel membangun dari repo GitHub itu dan men-deploy ke production.
+
+Jangan push langsung ke GitHub: salinan itu hanya untuk memicu Vercel. Paket Vercel Hobby menolak deploy dari repo private di group GitLab, dan hanya men-deploy commit yang penulisnya pemilik tim (`WhitesecOne`). Variabel lingkungan production diatur di project Vercel `web-whitesec-energy-tupb`. Domain `whitesec.energy` belum disambungkan.
